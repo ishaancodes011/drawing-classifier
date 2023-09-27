@@ -1,0 +1,86 @@
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        display: flex;
+        background-color:aliceblue;
+    }
+    aside{
+        width: 19vw;
+        margin: 0 0.25vw;
+        background-color: rgb(214,214,179);
+        border-width: 0.5vh 0.25vw;
+        border-style: solid;
+        border-color: beige;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    article{
+        margin: 0 0.25vw;
+        width: 79vw;
+    }
+    #frame{
+        height: 99vh;
+        width: 100%;
+        border-width: 0.5vh 0.25vw;
+        border-style: solid;
+        border-color: beige;
+        border-radius: 20px;
+    }
+    button{
+        margin: 0 1vw;
+        padding: 1vw;
+        background-color: beige;
+        border: 1px solid rgba(27, 31, 35, .15);
+        border-radius: 6px;
+        box-shadow: rgba(27, 31, 35, .1) 2px 3px 2px;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: inline-block;
+        font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
+        padding: 6px 16px;
+    }
+    
+    h2{
+        margin: 5vh 0;
+    }
+    h3{
+        margin: 2vh 0;
+    }
+    #buttonContainer1{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+<body>
+    <aside>
+        <h2>Select the App:</h2>
+        <h3>Basic Implementation:</h3>
+        <div id="buttonContainer1">
+            <button id="creator" onclick = fnc(this.id)>Creator App</button>
+            <button id="viewer" onclick = fnc(this.id)>Viewer App</button>
+        </div>
+    </aside>
+    <article>
+        <iframe id="frame" src="web/creator.html" frameborder="0"></iframe>
+    </article>
+    
+    <script>
+        function fnc (id) {
+            if(id == 'creator'){
+                frame.src = "web/creator.html"
+            } else if(id == 'viewer'){
+                frame.src = "web/viewer.html"
+            }
+        }
+    </script>
+</body>

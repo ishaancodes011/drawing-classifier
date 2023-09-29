@@ -51,6 +51,7 @@ button:disabled:hover{
     border-radius: 10%;
     margin: 1px;
     overflow: hidden;
+    max-width: 8%;
 }
 .blur{
     filter: blur(5px);
@@ -98,4 +99,28 @@ button:disabled:hover{
 #statistics {
     font-size: 20px;
     padding: 20px;
+}
+
+.flagged {
+    background-color: red !important;
+}
+
+.infoButton {
+    color: navy;
+    cursor:pointer;
+}
+
+.infoButton:hover .tooltipText {
+    visibility: visible;
+}
+
+.tooltipText {
+    color: white;
+    background-color: navy;
+    position: absolute;
+    visibility: hidden;
+    font-size: small;
+    border-radius: 6px;
+    padding: 6px;
+    font-weight: normal;
 }

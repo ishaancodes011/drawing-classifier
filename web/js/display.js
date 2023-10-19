@@ -1,4 +1,4 @@
-function createRow(container, studentName, samples){
+function createRow(container, studentName, samples, imp = 1){
     const row = document.createElement("div");
     row.classList.add("row");
     container.appendChild(row);
@@ -31,7 +31,11 @@ function createRow(container, studentName, samples){
         sampleContainer.appendChild(sampleLabel);
 
         const img = document.createElement('img');
-        img.src = constants.IMG_DIR + '/' + id + '.png';
+        if (imp == 1){
+            img.src = constants.IMG_DIR + '/' + id + '.png';
+        } else if (imp == 2) {
+            img.src = constants.IMG_DIR2 + '/' + id + '.png';
+        }
         img.classList.add('thumb');
         if(utils.flaggedUsers.includes(student_id)){
             img.classList.add('blur');
@@ -73,5 +77,14 @@ function toggleInput(){
     }else{
         inputContainer.style.display = "none";
         chart.hideDynamicPoint();
+    }
+}
+
+function toggleOutput(){
+    if(confusionContainer.style.display == 'none'){
+        confusionContainer.style.display = "block";
+        sketchPad.triggerUpdate();
+    }else{
+        confusionContainer.style.display = "none";
     }
 }

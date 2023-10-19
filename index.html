@@ -19,7 +19,7 @@
             border-radius: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: left;
         }
         article{
             margin: 0 0.25vw;
@@ -53,25 +53,63 @@
         h2{
             margin: 5vh 0;
         }
+
         h3{
-            margin: 2vh 0;
+            margin: 0 0 0 1vh;
         }
-        #buttonContainer1{
+
+        .titleContainer{
+            width: 19vw;
             display: flex;
-            width: 100%;
-            align-items: center;
             justify-content: center;
+        }
+
+        .tooltip {
+            margin: 2vh;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 17vw;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+
+            /* Position the tooltip */
+            position: absolute;
+            z-index: 1;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
         }
     </style>
 </head>
 <body>
     <aside>
-        <h2>Select the App:</h2>
-        <h3>Basic Implementation:</h3>
-        <div id="buttonContainer1">
-            <button id="creator" onclick = fnc(this.id)>Creator App</button>
-            <button id="viewer" onclick = fnc(this.id)>Viewer App</button>
+        <div class="titleContainer">
+            <h2>Drawing Classifier:</h2>
         </div>
+        <div class="tooltip">🛈
+            <span class="tooltiptext">App for Creating the Drawings for data</span>
+            <h3>Creator App:</h3>
+        </div>
+        <button id="creator" onclick = fnc(this.id)>Creator App</button>
+        <div class="tooltip">🛈
+            <span class="tooltiptext">A basic Implementation using only the height and width of the drawing</span>
+            <h3>Basic Implementation:</h3>
+        </div>
+        <button id="viewer" onclick = fnc(this.id)>Classifier App</button>
+        <div class="tooltip">🛈
+            <span class="tooltiptext">Implementation with new features:<br>Elongation<br>Roundness<br>Pixels</span>
+            <h3>Implementation 2:</h3>
+        </div>
+        <button id="viewer2" onclick = fnc(this.id)>Classifier App</button>
     </aside>
     <article>
         <iframe id="frame" src="web/creator.html" frameborder="0"></iframe>
@@ -79,11 +117,7 @@
     
     <script>
         function fnc (id) {
-            if(id == 'creator'){
-                frame.src = "web/creator.html"
-            } else if(id == 'viewer'){
-                frame.src = "web/viewer.html"
-            }
+            frame.src = `./web/${id}.html`
         }
     </script>
 </body>

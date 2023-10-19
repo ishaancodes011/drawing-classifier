@@ -2,6 +2,11 @@ body{
     font-family: Arial;
     background-color: skyblue;
     overscroll-behavior: none;
+    /**compatibility*/
+   touch-action: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   user-select: none;
 }
 #content{
     position: absolute;
@@ -72,6 +77,13 @@ button:disabled:hover{
     transform: translate(0, -50%);
 }
 
+#confusionContainer{
+    position: absolute;
+    right: 0;
+    background-color: white;
+    z-index: 1;
+}
+
 #inputContainer{
     position: fixed;
     right: 500px;
@@ -123,4 +135,28 @@ button:disabled:hover{
     border-radius: 6px;
     padding: 6px;
     font-weight: normal;
+}
+
+#loader {
+    border: 12px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 12px solid #444444;
+    width: 70px;
+    height: 70px;
+    animation: spin 1s linear infinite;
+}
+
+.center {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
 }

@@ -41,6 +41,7 @@ for(let x=0; x<canvas.width; x++){
         ctx.fillStyle = color;
         ctx.fillRect(x,y,1,1);
     }
+    utils.printProgress(x + 1, canvas.width);
 }
 
 const buffer = canvas.toBuffer("image/png");
